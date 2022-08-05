@@ -1,23 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './styles/style.css';
+import Card from './components/Card';
 
 function App() {
+  const [formData, setFormData] = useState({
+    author: "",
+    title: ""
+  })
+  const [books, setBooks] = useState([])
+  const [idCounter, setIdCounter] = useState(0)
+
+  class Book {
+    constructor(author, title, id){
+      this.author = author
+      this.title = title
+      this.id = id
+    }
+  }
+
+  function handleChangeData(event){
+    const { name, value } = event.target
+    setFormData(prevData => {
+      return {
+        ...prevData,
+        [name]: value
+      }
+    })
+  }
+
+  function handleForm(event){
+    event.preventDefault()
+    setIdCounter(prevId => prevId + 1)
+    const book = new Book(formData.author, formData.title, idCounter)
+    formData.author = ""
+    formData.title = ""
+    setBooks(prevBooks => [book, ...prevBooks])
+  }
+
+  function deleteCard(id){
+    setBooks(prevBooks => prevBooks.filter(b => b.id != id))
+  }
+  
+  let boo = books.map(b => <Card key={b.id} title={b.title} author={b.author} id={b.id} deleteCard={deleteCard} />)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='books-page'>
+        <form className='form' onSubmit={handleForm} >
+          <input name='author' value={formData.author} onChange={handleChangeData} type="text" placeholder='author' />
+          <input name='title' value={formData.title} onChange={handleChangeData} type="text" placeholder='title' />
+          <button>Add</button>
+        </form>
+        <div className="cards">
+          {boo}
+        </div>
+      </div>
     </div>
   );
 }

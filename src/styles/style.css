@@ -1,0 +1,112 @@
+.card {
+  background-color: #242226;
+  display: inline-block;
+  margin: 0 10px;
+  margin-top: 10px;
+  color: #C7C2CC;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 100ms ease-in-out;
+}
+.card:hover {
+  transform: translateY(-5%);
+}
+.card .text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.deleteIcon {
+  width: 6%;
+  transform-origin: 13px 11px;
+  fill: red;
+}
+.deleteIcon:hover {
+  -webkit-animation: shakeAnim infinite 60ms alternate;
+          animation: shakeAnim infinite 60ms alternate;
+}
+
+@-webkit-keyframes shakeAnim {
+  0% {
+    transform: rotateZ(10deg);
+  }
+  100% {
+    transform: rotateZ(-10deg);
+  }
+}
+
+@keyframes shakeAnim {
+  0% {
+    transform: rotateZ(10deg);
+  }
+  100% {
+    transform: rotateZ(-10deg);
+  }
+}
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #302E33;
+}
+
+.books-page {
+  background-color: #302E33;
+  height: 90vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(auto-fit, 50px);
+  height: 70%;
+  width: 80%;
+  background-color: #615C66;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(20px, auto));
+  gap: 20px 5px;
+  margin-top: 20px;
+}
+.form button {
+  grid-column: span 2;
+  background-color: #6212B2;
+  padding: 7px 40px;
+  justify-self: center;
+  border: none;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transition: 50ms ease-in-out;
+  transition-property: transform, box-shadow;
+}
+.form button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.form button:active {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.form input {
+  grid-column: span 1;
+  padding: 3px;
+  border: 3px solid #242226;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}/*# sourceMappingURL=style.css.map */

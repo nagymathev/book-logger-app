@@ -1,0 +1,44 @@
+@import './variables';
+
+.card {
+    background-color: $black;
+    display: inline-block;
+    margin: 0 10px;
+    margin-top: 10px;
+    color: $black80;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 100ms ease-in-out;
+    &:hover{
+        transform: translateY(-5%);
+    }
+    .text{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+}
+
+.deleteIcon {
+    width: 6%;
+    transform-origin: 13px 11px;
+    // transition: transform .6s ease-in-out;
+    fill: red;
+    &:hover{
+        // transform: rotate(360deg);
+        animation: shakeAnim infinite 60ms alternate;
+    }
+}
+
+@keyframes shakeAnim {
+    0% {
+        transform: rotateZ(10deg);
+    }
+    100% {
+        transform: rotateZ(-10deg);
+    }
+}
