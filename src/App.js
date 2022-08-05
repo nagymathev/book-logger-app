@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './styles/style.css';
 import Card from './components/Card';
+import videoBg from './img/video.mp4'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -38,13 +39,14 @@ function App() {
   }
 
   function deleteCard(id){
-    setBooks(prevBooks => prevBooks.filter(b => b.id != id))
+    setBooks(prevBooks => prevBooks.filter(b => b.id !== id))
   }
-  
+
   let boo = books.map(b => <Card key={b.id} title={b.title} author={b.author} id={b.id} deleteCard={deleteCard} />)
 
   return (
     <div className="App">
+      <video src={videoBg} autoPlay loop muted />
       <div className='books-page'>
         <form className='form' onSubmit={handleForm} >
           <input name='author' value={formData.author} onChange={handleChangeData} type="text" placeholder='author' />
