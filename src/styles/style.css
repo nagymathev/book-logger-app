@@ -1,6 +1,5 @@
 .card {
   background-color: #242226;
-  display: inline-block;
   margin: 0 10px;
   margin-top: 10px;
   color: #C7C2CC;
@@ -22,7 +21,7 @@
 }
 
 .deleteIcon {
-  width: 6%;
+  width: 20px;
   transform-origin: 13px 11px;
   fill: red;
 }
@@ -46,6 +45,11 @@
   }
   100% {
     transform: rotateZ(-10deg);
+  }
+}
+@media (max-width: 500px) {
+  .text {
+    font-size: 80%;
   }
 }
 .App {
@@ -107,6 +111,20 @@
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 1300px) {
+  .cards {
+    grid-template-columns: 1fr;
+    width: 95%;
+  }
+  .books-page {
+    width: 100vw;
+  }
+}
+@media (max-width: 500px) {
+  .form {
+    grid-column: span 2;
+  }
+}
 * {
   font-family: "Inter", sans-serif;
 }/*# sourceMappingURL=style.css.map */

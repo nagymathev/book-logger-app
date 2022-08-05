@@ -56,3 +56,20 @@
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
     }
 }
+
+@media (max-width: 1300px) {
+    .cards {
+        grid-template-columns: 1fr;
+        width: 95%;
+    }
+
+    .books-page {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .form {
+        grid-column: span 2;
+    }
+}
